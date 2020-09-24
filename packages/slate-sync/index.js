@@ -109,7 +109,7 @@ function promiseThemekitConfig() {
       console.error('My Error', error);
       reject(error);
     }
-  }) //.catch(error => { console.log('caught', error.message); });
+  })
 }
 
 function promiseThemekitDeploy(cmd, files) {
