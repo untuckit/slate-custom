@@ -92,57 +92,49 @@ async function deploy(cmd = '', files = []) {
   return maybeDeploy;
 }
 
-function promiseThemekitConfig() {
-  return new Promise((resolve, reject) => {
-    const configFlags = _generateConfigFlags();
+async function promiseThemekitConfig() {
+  const configFlags = _generateConfigFlags();
 
-    try {
-      themekit.command(
-        'configure',
-        configFlags,
-        {
-          cwd: config.get('paths.theme.dist')
-        }
-      );
-      resolve();
-    } catch (error) {
-      console.error('My Error', error);
-      reject(error);
-    }
-  })
+  try {
+    await themekit.command(
+      'configure',
+      configFlags,
+      {
+        cwd: config.get('paths.theme.dist')
+      }
+    );
+  } catch (error) {
+    console.error('My Error', error);
+  }
 }
 
-function promiseThemekitDeploy(cmd, files) {
-  return new Promise((resolve, reject) => {
-    const configFlags = _generateConfigFlags();
+async function promiseThemekitDeploy(cmd, files) {
+  const configFlags = _generateConfigFlags();
 
-    if (files) {
-      configFlags['files'] = files
-    }
+  if (files) {
+    configFlags['files'] = files
+  }
 
-    if (cmd == "upload") {
-      configFlags['noDelete'] = true
-    }
+  if (cmd == "upload") {
+    configFlags['noDelete'] = true
+  }
 
-    try {
-      themekit.command(
-        'deploy',
-        configFlags,
-        {
-          cwd: config.get('paths.theme.dist')
-        }
-      );
-      resolve();
-    } catch (error) {
-      console.error('My Error', error);
-      reject(error);
-    }
-  });
   // slate-tools `deploy` command already prompts user
   // if they want to deploy to published theme,
   // so they only get here if they approve`
   configFlags['allow-live'] = true
 
+  try {
+    await themekit.command(
+      'deploy',
+      configFlags,
+      {
+        cwd: config.get('paths.theme.dist')
+      }
+    );
+  } catch (error) {
+    console.error('My Error', error);
+  }
 }
 
 /**
