@@ -138,6 +138,11 @@ function promiseThemekitDeploy(cmd, files) {
       reject(error);
     }
   });
+  // slate-tools `deploy` command already prompts user
+  // if they want to deploy to published theme,
+  // so they only get here if they approve`
+  configFlags['allow-live'] = true
+
 }
 
 /**
