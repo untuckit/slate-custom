@@ -2,6 +2,16 @@
 
 This repo fork is solely intended to support legacy projects already using Slate, since Slate itself is deprecated by Shopify (See Legacy Info section below).
 
+## Primary Updates
+
+### Upgraded Themekit
+
+To take advantage of file checksums, so only changed files are uploaded/downloaded on deploy/watch etc
+
+### Removed analytics calls from CLI commands
+
+To avoid axios errors clogging the logs
+
 ## Installation
 
 Releases will be accessible only from tarballs on the [release page](https://github.com/kilgore5/slate/releases/)
@@ -10,7 +20,7 @@ Go to the release page for the latest release and note the individual packages a
 
 Copy the links to each of the tarballs and then install as normal via URL.
 
-Since we're not changing the Shopify namespace and we're install the updated packages from outside the NPM registry, we have to install each updated package individually.
+Since we're not changing the Shopify namespace and we're installing the updated packages from outside the NPM registry, we have to install each updated package individually.
 ```
 # e.g.
 npm i --save-dev https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-sync-1.0.1-beta.0.tar.gz
@@ -43,13 +53,36 @@ This uses Lerna lib to bump all the necessary versions (you'll be prompted to ch
 
 If necessary bump the version in each package's README.md (e.g. `## Last update (1.0.1-beta.2)`) to force Lerna to change the version for that package.
 
+```
+$ npm run release
+
+> slate@ release /Users/johnroyall/slate-mine
+> lerna version --exact && git push --follow-tags
+
+lerna notice cli v3.11.0
+lerna info current version 1.0.1-beta.1
+lerna info Looking for changed packages since v1.0.0-beta.19
+? Select a new version (currently 1.0.1-beta.1) Custom Version
+? Enter a custom version 1.0.1-beta.2
+
+Changes:
+ - @shopify/slate-sync: 1.0.1-beta.1 => 1.0.1-beta.2
+ - @shopify/slate-tools: 1.0.1-beta.1 => 1.0.1-beta.2
+
+? Are you sure you want to create these versions? Yes
+lerna info execute Skipping GitHub releases
+lerna info git Pushing tags...
+lerna success version finished
+Everything up-to-date
+```
+
 ### 5. Package the individual tarballs with `npm pack` (for any updated packages)
 .eg.
 ```
-Johns-MacBook-Pro:slate-mine johnroyall$ pwd
+$ pwd
 /Users/johnroyall/slate-mine
-Johns-MacBook-Pro:slate-mine johnroyall$ cd packages/slate-sync
-Johns-MacBook-Pro:slate-sync johnroyall$ npm pack
+$ cd packages/slate-sync
+$ npm pack
 npm notice
 npm notice 📦  @shopify/slate-sync@1.0.1-beta.1
 npm notice === Tarball Contents ===
@@ -70,6 +103,7 @@ shopify-slate-sync-1.0.1-beta.1.tgz
 ```
 
 ### 6. Attach all the updated packages to the tag
+Don't forget to delete the tarballs once done.
 
 ### More info
 See CONTRIBUTING.MD, but note that most of this is *not* followed
