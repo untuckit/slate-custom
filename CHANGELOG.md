@@ -1,5 +1,13 @@
 # Change Log
 
+## v1.0.1-beta.0 (2021-04-06)
+
+#### :rocket: Enhancement
+* `slate-tools`
+  * [kilgore5/slate#4](https://github.com/kilgore5/slate/pull/4) Remove Analytics from Slate-Tools
+* `slate-sync`
+  * [kilgore5/slate#1](https://github.com/kilgore5/slate/pull/1) Upgrade Themekit to latest version.
+
 ## v1.0.0-beta.18 (2019-04-01)
 
 #### :rocket: Enhancement
