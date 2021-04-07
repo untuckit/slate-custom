@@ -24,7 +24,7 @@
     "lint:fix": "eslint ./ --fix && prettier-stylelint **/*.scss",
     "lint:fix-js": "eslint ./ --fix",
     "lint:fix-styles": "prettier-stylelint --write",
-    "bootstrap": "yarn install && lerna bootstrap",
+    "bootstrap": "npm install && lerna bootstrap",
     "changelog": "node_modules/.bin/lerna-changelog",
     "clean": "lerna clean",
     "build": "lerna run build",

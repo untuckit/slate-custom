@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const figures = require('figures');
 const https = require('https');
-const themekit = require('@shopify/themekit').command;
+const themekit = require('@shopify/themekit');
 const slateEnv = require('@shopify/slate-env');
 const SlateConfig = require('@shopify/slate-config');
 
@@ -45,27 +45,19 @@ function _generateConfigFlags() {
   _validateEnvValues();
 
   const flags = {
-    '--password': slateEnv.getPasswordValue(),
-    '--themeid': slateEnv.getThemeIdValue(),
-    '--store': slateEnv.getStoreValue(),
-    '--env': slateEnv.getEnvNameValue(),
+    'password': slateEnv.getPasswordValue(),
+    'themeid': slateEnv.getThemeIdValue(),
+    'store': slateEnv.getStoreValue(),
+    'env': slateEnv.getEnvNameValue(),
   };
   if (slateEnv.getTimeoutValue()) {
-    flags['--timeout'] = slateEnv.getTimeoutValue();
+    flags['timeout'] = slateEnv.getTimeoutValue();
   }
 
-  // Convert object to key value pairs and flatten the array
-  return Array.prototype.concat(...Object.entries(flags));
-}
-
-function _generateIgnoreFlags() {
-  const ignoreFiles = slateEnv.getIgnoreFilesValue().split(':');
-  const flags = [];
-
-  ignoreFiles.forEach((pattern) => {
-    flags.push('--ignored-file');
-    flags.push(pattern);
-  });
+  if (slateEnv.getIgnoreFilesValue()) {
+    const ignoreFiles = slateEnv.getIgnoreFilesValue().split(':');
+    flags['ignoredFiles'] = ignoreFiles
+  }
 
   return flags;
 }
@@ -100,49 +92,49 @@ async function deploy(cmd = '', files = []) {
   return maybeDeploy;
 }
 
-function promiseThemekitConfig() {
-  return new Promise((resolve, reject) => {
-    themekit(
+async function promiseThemekitConfig() {
+  const configFlags = _generateConfigFlags();
+
+  try {
+    await themekit.command(
+      'configure',
+      configFlags,
       {
-        args: [
-          'configure',
-          ..._generateConfigFlags(),
-          ..._generateIgnoreFlags(),
-        ],
-        cwd: config.get('paths.theme.dist'),
-      },
-      (err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve();
-        }
-      },
+        cwd: config.get('paths.theme.dist')
+      }
     );
-  });
+  } catch (error) {
+    console.error('My Error', error);
+  }
 }
 
-function promiseThemekitDeploy(cmd, files) {
-  return new Promise((resolve, reject) => {
-    themekit(
+async function promiseThemekitDeploy(cmd, files) {
+  const configFlags = _generateConfigFlags();
+
+  if (files) {
+    configFlags['files'] = files
+  }
+
+  if (cmd == "upload") {
+    configFlags['noDelete'] = true
+  }
+
+  // slate-tools `deploy` command already prompts user
+  // if they want to deploy to published theme,
+  // so they only get here if they approve`
+  configFlags['allow-live'] = true
+
+  try {
+    await themekit.command(
+      'deploy',
+      configFlags,
       {
-        args: [
-          cmd,
-          '--no-update-notifier',
-          ..._generateConfigFlags(),
-          ...files,
-        ],
-        cwd: config.get('paths.theme.dist'),
-      },
-      (err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve();
-        }
-      },
+        cwd: config.get('paths.theme.dist')
+      }
     );
-  });
+  } catch (error) {
+    console.error('My Error', error);
+  }
 }
 
 /**
