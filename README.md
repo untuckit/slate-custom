@@ -1,3 +1,9 @@
+# Slate is Dead, Long Live Slate (April 2021)
+
+This repo fork is solely intended to support legacy projects already using Slate, since Slate itself is deprecated by Shopify (See below).
+
+# Legacy Info - Slate is Deprecated
+
 [![Build Status](https://travis-ci.org/Shopify/slate.svg?branch=master)](https://travis-ci.org/Shopify/slate) [![npm version](https://badge.fury.io/js/%40shopify%2Fslate-tools.svg)](https://badge.fury.io/js/%40shopify%2Fslate-tools)
 
 ![slate animated banner](https://user-images.githubusercontent.com/4837696/47506317-cbe22400-d83d-11e8-9867-1dc874943833.gif)
@@ -8,7 +14,7 @@ After re-evaluating Slate and its current state, Shopify has decided to official
 
 ### Why?
 
-With the launch of our new [section theme architecture](https://help.shopify.com/en/themes/development/sections-architecture) we're taking a step back to examine our current tooling and how we can deliver the best theming experience to our theme developers. 
+With the launch of our new [section theme architecture](https://help.shopify.com/en/themes/development/sections-architecture) we're taking a step back to examine our current tooling and how we can deliver the best theming experience to our theme developers.
 
 Slate is not in line with our vision for themes moving forward and it does not solve two of the larger asks our theme developers have made:
 
