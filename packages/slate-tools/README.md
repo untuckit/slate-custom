@@ -1,3 +1,5 @@
+bump
+
 [![npm version](https://badge.fury.io/js/%40shopify%2Fslate-tools.svg)](https://badge.fury.io/js/%40shopify%2Fslate-tools)
 
 # @shopify/slate-tools

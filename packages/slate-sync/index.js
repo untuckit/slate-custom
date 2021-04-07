@@ -5,6 +5,7 @@ const themekit = require('@shopify/themekit');
 const slateEnv = require('@shopify/slate-env');
 const SlateConfig = require('@shopify/slate-config');
 
+
 const config = new SlateConfig(require('./slate-sync.schema'));
 
 let deploying = false;
