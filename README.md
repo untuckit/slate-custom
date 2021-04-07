@@ -1,6 +1,80 @@
 # Slate is Dead, Long Live Slate (April 2021)
 
-This repo fork is solely intended to support legacy projects already using Slate, since Slate itself is deprecated by Shopify (See below).
+This repo fork is solely intended to support legacy projects already using Slate, since Slate itself is deprecated by Shopify (See Legacy Info section below).
+
+## Installation
+
+Releases will be accessible only from tarballs on the [release page](https://github.com/kilgore5/slate/releases/)
+
+Go to the release page for the latest release and note the individual packages attached to the release.
+
+Copy the links to each of the tarballs and then install as normal via URL.
+
+Since we're not changing the Shopify namespace and we're install the updated packages from outside the NPM registry, we have to install each updated package individually.
+```
+# e.g.
+npm i --save-dev https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-sync-1.0.1-beta.0.tar.gz
+npm i --save-dev https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-tools-1.0.1-beta.0.tar.gz
+
+...
+```
+
+The resulting package.json will look like
+```
+...
+
+  "devDependencies": {
+    "@shopify/slate-sync": "https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-sync-1.0.1-beta.0.tar.gz",
+    "@shopify/slate-tools": "https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-tools-1.0.1-beta.0.tar.gz",
+
+    ...
+```
+
+## Release creation
+
+### 1. Merge necessary PR's to `develop`
+
+### 2. Create a release PR from `develop` to `master` and merge
+
+### 3. Checkout and pull master
+
+### 4. `npm run release`
+This uses Lerna lib to bump all the necessary versions (you'll be prompted to choose the next version) and creates the release tag on the repo releases page.
+
+If necessary bump the version in each package's README.md (e.g. `## Last update (1.0.1-beta.2)`) to force Lerna to change the version for that package.
+
+### 5. Package the individual tarballs with `npm pack` (for any updated packages)
+.eg.
+```
+Johns-MacBook-Pro:slate-mine johnroyall$ pwd
+/Users/johnroyall/slate-mine
+Johns-MacBook-Pro:slate-mine johnroyall$ cd packages/slate-sync
+Johns-MacBook-Pro:slate-sync johnroyall$ npm pack
+npm notice
+npm notice 📦  @shopify/slate-sync@1.0.1-beta.1
+npm notice === Tarball Contents ===
+npm notice 5.3kB index.js
+npm notice 115B  slate-sync.schema.js
+npm notice 751B  package.json
+npm notice === Tarball Details ===
+npm notice name:          @shopify/slate-sync
+npm notice version:       1.0.1-beta.1
+npm notice filename:      shopify-slate-sync-1.0.1-beta.1.tgz
+npm notice package size:  2.2 kB
+npm notice unpacked size: 6.1 kB
+npm notice shasum:        9a8a7d5aca0304141fb1d0ab1039d3800618b763
+npm notice integrity:     sha512-gAt2HyJa7NQ6a[...]5m7THw6mMXzzg==
+npm notice total files:   3
+npm notice
+shopify-slate-sync-1.0.1-beta.1.tgz
+```
+
+### 6. Attach all the updated packages to the tag
+
+### More info
+See CONTRIBUTING.MD, but note that most of this is *not* followed
+
+## Dev Setup (tbd)
 
 # Legacy Info - Slate is Deprecated
 

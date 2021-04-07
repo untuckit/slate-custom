@@ -1,6 +1,6 @@
 # Change Log
 
-## v1.0.1-beta.0 (2021-04-06)
+## v1.0.1-beta.1 (2021-04-06)
 
 #### :rocket: Enhancement
 * `slate-tools`
