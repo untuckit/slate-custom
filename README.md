@@ -40,6 +40,10 @@ The resulting package.json will look like
     ...
 ```
 
+## Usage Notes
+- Due to the way Themekit is calculating checksums, you'll note that certain files are always uploaded despite no obvious changes (e.g. `locales/en.default.json`)
+  - This is because Shopify is minifying the JSON after upload, so the file on Shopify will have a different checksum than our repo version.
+
 ## Release creation
 
 ### 1. Merge necessary PR's to `develop`
