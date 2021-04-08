@@ -1,12 +1,12 @@
 # Change Log
 
-## v1.0.1-beta.1 (2021-04-06)
+## v1.0.1 (2021-04-07)
 
 #### :rocket: Enhancement
 * `slate-tools`
-  * [kilgore5/slate#4](https://github.com/kilgore5/slate/pull/4) Remove Analytics from Slate-Tools
+  * [kilgore5/slate#4](https://github.com/kilgore5/slate/pull/4) Remove Analytics from Slate-Tools to remove Axios errors from logs.
 * `slate-sync`
-  * [kilgore5/slate#1](https://github.com/kilgore5/slate/pull/1) Upgrade Themekit to latest version.
+  * [kilgore5/slate#1](https://github.com/kilgore5/slate/pull/1) Upgrade Themekit to latest version for vastly faster deploys.
 
 ## v1.0.0-beta.18 (2019-04-01)
 
