@@ -18,13 +18,13 @@ Releases will be accessible only from tarballs on the [release page](https://git
 
 Go to the release page for the latest release and note the individual packages attached to the release.
 
-Copy the links to each of the tarballs and then install as normal via URL.
+Copy the links to each of the tarballs (.tgz files) and then install as normal via URL.
 
 Since we're not changing the Shopify namespace and we're installing the updated packages from outside the NPM registry, we have to install each updated package individually.
 ```
 # e.g.
-npm i --save-dev https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-sync-1.0.1-beta.0.tar.gz
-npm i --save-dev https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-tools-1.0.1-beta.0.tar.gz
+npm i --save-dev https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-sync-1.0.1-beta.0.tgz
+npm i --save-dev https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-tools-1.0.1-beta.0.tgz
 
 ...
 ```
@@ -34,8 +34,8 @@ The resulting package.json will look like
 ...
 
   "devDependencies": {
-    "@shopify/slate-sync": "https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-sync-1.0.1-beta.0.tar.gz",
-    "@shopify/slate-tools": "https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-tools-1.0.1-beta.0.tar.gz",
+    "@shopify/slate-sync": "https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-sync-1.0.1-beta.0.tgz",
+    "@shopify/slate-tools": "https://github.com/kilgore5/slate/releases/download/v1.0.1-beta.0/slate-tools-1.0.1-beta.0.tgz",
 
     ...
 ```
