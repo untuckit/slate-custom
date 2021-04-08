@@ -124,6 +124,8 @@ async function promiseThemekitDeploy(cmd, files) {
   // so they only get here if they approve`
   configFlags['allow-live'] = true
 
+  configFlags['verbose'] = true
+
   try {
     await themekit.command(
       'deploy',
