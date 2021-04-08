@@ -4,9 +4,9 @@ This repo fork is solely intended to support legacy projects already using Slate
 
 ## Primary Updates
 
-### Upgraded Themekit
+### Upgraded Themekit = Vastly Faster Deploys
 
-To take advantage of file checksums, so only changed files are uploaded/downloaded on deploy/watch etc
+To take advantage of file checksums, so only changed files are uploaded/downloaded on deploy/start etc
 
 ### Removed analytics calls from CLI commands
 
