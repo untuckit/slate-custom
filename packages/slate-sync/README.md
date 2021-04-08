@@ -1,3 +1,3 @@
 # @shopify/slate-sync
 
-## Last update (1.0.1-beta.4)
+## Last update (1.0.1)
