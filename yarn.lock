@@ -1162,11 +1162,10 @@
     escape-string-regexp "^1.0.5"
     loader-utils "^1.1.0"
 
-"@shopify/slate-sync@https://github.com/evankford/simpleify/releases/download/v1.1.0/shopify-slate-sync-1.1.0.tgz":
-  version "1.1.0"
-  resolved "https://github.com/evankford/simpleify/releases/download/v1.1.0/shopify-slate-sync-1.1.0.tgz#7ca7e32597a34a3fe30573e55f29d13dfd6bafd6"
+"@shopify/slate-sync@https://github.com/untuckit/slate-custom/releases/download/v1.1.3/shopify-slate-sync-1.1.3.tgz":
+  version "1.1.3"
+  resolved "https://github.com/untuckit/slate-custom/releases/download/v1.1.3/shopify-slate-sync-1.1.3.tgz#fdc9709707a8f3398cbda2afcc9c6dbde11d7daa"
   dependencies:
-    "@shopify/slate-analytics" "1.0.0-beta.16"
     "@shopify/slate-config" "1.0.0-beta.14"
     "@shopify/slate-env" "1.0.0-beta.16"
     "@shopify/themekit" "^1.1.9"
