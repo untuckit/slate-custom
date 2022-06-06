@@ -43,9 +43,9 @@ function SlateCSSLoader(source) {
 
   return source.replace(CSS_VAR_FUNC_REGEX, (match, cssVariable) => {
     if (!variables[cssVariable]) {
-      console.warn(
-        `Liquid variable not found for CSS variable "${cssVariable}"`,
-      );
+      // console.warn(
+      //   `Liquid variable not found for CSS variable "${cssVariable}"`,
+      // );
 
       return match;
     }
