@@ -24,8 +24,6 @@
       "how-to-update-Slate-to-the-latest-version"
     ],
     "Reference": [
-      "create-slate-theme",
-      "slate-analytics",
       "slate-configuration",
       "slate-cssvar-loader"
     ]

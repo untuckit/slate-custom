@@ -68,15 +68,6 @@ git push origin master
 
 See [Github's official documentation](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) for more details.
 
-## How to run your local edits to `create-slate-theme`
-
-Create Slate Theme is typically run via `yarn create slate-theme`, however this command always pulls the latest version of `create-slate-theme` from NPM so you can't use it to test any changes you make locally.
-
-To run your local version of `create-slate-theme`, do the following:
-
-1.  In your terminal, navigate to the `packages/create-slate-theme` folder in the Slate Repo
-2.  Run `node index.js <your-theme-name> [custom-theme]`. The last two arguments are the same as when you would use when using `yarn create`
-
 ## View changes to `slate-tools` package in a live store
 
 In order to test changes you make to Slate Tools, you'll need to have a Slate theme project to test it with. To do this:
@@ -115,7 +106,7 @@ GIT_USER=<GITHUB_USERNAME> CURRENT_BRANCH=master USE_SSH=true yarn run publish-g
 ```
 
 
-You can read both the README files in the [v0 folder](https://github.com/Shopify/slate/tree/master/docs/v0) and the [v1 folder](https://github.com/Shopify/slate/tree/master/docs/v0) to see how to run the documentation site locally. 
+You can read both the README files in the [v0 folder](https://github.com/Shopify/slate/tree/master/docs/v0) and the [v1 folder](https://github.com/Shopify/slate/tree/master/docs/v0) to see how to run the documentation site locally.
 
 ## Publishing
 
