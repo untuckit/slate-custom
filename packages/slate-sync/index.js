@@ -119,11 +119,6 @@ async function promiseThemekitDeploy(cmd, files) {
     configFlags['noDelete'] = true
   }
 
-  // slate-tools `deploy` command already prompts user
-  // if they want to deploy to published theme,
-  // so they only get here if they approve`
-  configFlags['allow-live'] = true
-
   configFlags['verbose'] = true
 
   try {
