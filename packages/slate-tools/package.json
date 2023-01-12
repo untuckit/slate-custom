@@ -62,7 +62,7 @@
     "minimist": "1.2.0",
     "ora": "^2.0.0",
     "portscanner": "^2.2.0",
-    "postcss-loader": "2.1.1",
+    "postcss-loader": "^2.1.6",
     "postcss-reporter": "^5.0.0",
     "prettier": "^1.10.2",
     "raw-loader": "^0.5.1",
