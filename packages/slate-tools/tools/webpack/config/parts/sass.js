@@ -12,7 +12,7 @@ const part = {
 };
 
 const sassRule = {
-  test: /\.s[ac]ss$/,
+  test: /(?<!\.module)\.s[ac]ss$/,
 };
 
 const styleLoader = {
